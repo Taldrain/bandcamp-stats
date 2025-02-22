@@ -1,4 +1,4 @@
-async function apiCall(artist, album, track, url) {
+async function apiCall(artist, album, track, albumUrl) {
   const { apiKey, apiUrl } = await browser.storage.sync.get(['apiKey', 'apiUrl']);
   if (apiKey === undefined || apiUrl === undefined) {
     return;
@@ -6,11 +6,11 @@ async function apiCall(artist, album, track, url) {
 
   const request = new Request(apiUrl, {
     method: 'POST',
-    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': `Bearer ${apiKey}`,
     },
-    body: JSON.stringify({ artist, album, track, url }),
+    body: JSON.stringify({ artist, album, track, albumUrl }),
   });
 
   return fetch(request);

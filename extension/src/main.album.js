@@ -1,11 +1,11 @@
 import { apiCall } from './utils.js';
 
 (() => {
-  if (window.bandcampStatHasRun === true) {
+  if (window.bandcampStatAlbumHasRun === true) {
     return;
   }
 
-  window.bandcampStatHasRun = true;
+  window.bandcampStatAlbumHasRun = true;
 
   function watchPlay() {
     let timeoutId = -1;
@@ -22,10 +22,10 @@ import { apiCall } from './utils.js';
             artist,
             album,
             track,
-            url
+            albumUrl,
           } = getTrackInfo();
 
-          apiCall(artist, album, track, url);
+          apiCall(artist, album, track, albumUrl);
         }, 5 * 1000); // 5 seconds
       }
     });
@@ -37,9 +37,10 @@ import { apiCall } from './utils.js';
     const artist = document.querySelector('h3 span a').innerText;
     const album = document.querySelector('h2.trackTitle').innerText
     const track = document.querySelector('div.track_info span.title').innerText;
-    const url = document.querySelector('div.track_info a.title_link.primaryText').href;
+    const currentUrl = new URL(document.URL);
+    const albumUrl = `${currentUrl.origin}${currentUrl.pathname}`;
 
-    return { artist, album, track, url };
+    return { artist, album, track, albumUrl };
   }
 
   watchPlay();
