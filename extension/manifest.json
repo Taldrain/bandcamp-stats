@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "bandcamp-stats",
+  "version": "0.1.0",
+
+  "description": "Send currently playing Bandcamp track",
+
+  "content_scripts": [{
+    "matches": ["https://*.bandcamp.com/*"],
+    "include_globs": ["https://*.bandcamp.com/*"],
+    "js": ["dist/main.album.js"]
+  }, {
+    "matches": ["https://bandcamp.com/*"],
+    "js": ["dist/main.collection.js"]
+  }],
+
+  "options_ui": {
+    "page": "dist/options.html"
+  },
+
+  "permissions": [
+    "storage",
+    "https://api.taldra.in/bdps/v1/listen"
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "bandcamp.stats@taldra.in"
+    }
+  }
+}

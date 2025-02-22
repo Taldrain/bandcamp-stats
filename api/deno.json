@@ -1,0 +1,13 @@
+{
+  "tasks": {
+    "db-push": "deno -A --node-modules-dir npm:drizzle-kit push",
+    "dev": "deno run --env --allow-read --allow-env --allow-net --allow-sys --allow-ffi main.ts",
+  },
+  "imports": {
+    "@hono/hono": "jsr:@hono/hono@^4.7.2",
+    "@libsql/client": "npm:@libsql/client@^0.14.0",
+    "drizzle-kit": "npm:drizzle-kit@^0.30.4",
+    "drizzle-orm": "npm:drizzle-orm@^0.38.4",
+    "~/": "./src/",
+  }
+}

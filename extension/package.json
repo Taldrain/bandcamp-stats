@@ -1,0 +1,13 @@
+{
+  "name": "bandcamp-album-cover-extension",
+  "version": "0.0.1",
+  "author": "taldrain",
+  "type": "module",
+  "scripts": {
+    "dist": "node esbuild"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "web-ext": "^8.3.0"
+  }
+}
