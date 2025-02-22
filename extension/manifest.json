@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "bandcamp-stats",
-  "version": "0.1.0",
+  "version": "0.1.1",
 
   "description": "Send currently playing Bandcamp track",
 
@@ -20,7 +20,8 @@
 
   "permissions": [
     "storage",
-    "https://api.taldra.in/bdps/v1/listen"
+    "http://*/*",
+    "https://*/*"
   ],
 
   "browser_specific_settings": {

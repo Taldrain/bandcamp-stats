@@ -1,6 +1,6 @@
 {
   "name": "bandcamp-album-cover-extension",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "author": "taldrain",
   "type": "module",
   "scripts": {

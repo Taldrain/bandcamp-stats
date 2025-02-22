@@ -8,6 +8,6 @@ const app = new Hono();
 
 app.post('/v1/listen', bearerAuth({ token: API_KEY }), listen);
 
-app.post('/health', ctx => ctx.body('OK'));
+app.get('/health', ctx => ctx.body('OK'));
 
 Deno.serve({ port: PORT }, app.fetch);
