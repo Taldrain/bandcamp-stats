@@ -3,6 +3,7 @@
   "specifiers": {
     "jsr:@hono/hono@^4.7.2": "4.7.2",
     "npm:@libsql/client@0.14": "0.14.0",
+    "npm:drizzle-kit@*": "0.30.4_esbuild@0.19.12",
     "npm:drizzle-kit@~0.30.4": "0.30.4_esbuild@0.19.12",
     "npm:drizzle-orm@~0.38.4": "0.38.4"
   },

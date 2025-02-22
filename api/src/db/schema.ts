@@ -5,6 +5,6 @@ export const tracks = sqliteTable("tracks", {
   artist: text().notNull(),
   album: text().notNull(),
   track: text().notNull(),
-  url: text().notNull(),
+  albumUrl: text().notNull(),
   nbListens: int().notNull().default(0),
 });

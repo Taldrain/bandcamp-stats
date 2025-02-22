@@ -12,9 +12,9 @@ function trackId(artist: string, album: string, track: string) {
   return `${artist}:${album}:${track}`;
 }
 
-function updateTrackCount(artist: string, album: string, track: string, url: string) {
+function updateTrackCount(artist: string, album: string, track: string, albumUrl: string) {
   return db.insert(tracks)
-    .values({ id: trackId(artist, album, track), artist, album, track, url, nbListens: 1 })
+    .values({ id: trackId(artist, album, track), artist, album, track, albumUrl, nbListens: 1 })
     .onConflictDoUpdate({
       target: tracks.id,
       set: { nbListens: sql`${tracks.nbListens} + 1` },
@@ -23,13 +23,13 @@ function updateTrackCount(artist: string, album: string, track: string, url: str
 
 async function handler(ctx: Context) {
   const body = await ctx.req.json();
-  const { artist, album, track, url } = body;
+  const { artist, album, track, albumUrl } = body;
 
-  if (!artist || !album || !track || !url) {
+  if (!artist || !album || !track || !albumUrl) {
     return ctx.body('Missing parameters', 400);
   }
 
-  await updateTrackCount(artist, album, track, url);
+  await updateTrackCount(artist, album, track, albumUrl);
   console.log(`Added ${artist} - ${album} - ${track}`);
 
   return ctx.body('');
