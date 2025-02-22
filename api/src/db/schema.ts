@@ -1,10 +1,10 @@
 import { int, sqliteTable, text } from "drizzle-orm/sqlite-core";
 
-export const tracks = sqliteTable("tracks", {
-  id: text().primaryKey(),
+export const plays = sqliteTable("plays", {
+  id: int().primaryKey({ autoIncrement: true }),
   artist: text().notNull(),
   album: text().notNull(),
   track: text().notNull(),
   albumUrl: text().notNull(),
-  nbListens: int().notNull().default(0),
+  timestamp: int().notNull(),
 });
