@@ -1,0 +1,6 @@
+api/node_modules/
+api/*.sqlite
+api/.env
+extension/dist/
+extension/node_modules/
+bandcamp-wrapped*.html

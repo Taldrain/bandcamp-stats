@@ -2,6 +2,7 @@
   "tasks": {
     "db-push": "deno -A --node-modules-dir npm:drizzle-kit push",
     "dev": "deno run --env --allow-read --allow-env --allow-net --allow-sys --allow-ffi main.ts",
+    "wrapped": "deno run --env --allow-read --allow-write --allow-run --allow-net --allow-env build-wrapped.ts"
   },
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.7.2",
